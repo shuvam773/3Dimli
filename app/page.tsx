@@ -24,8 +24,10 @@ export default function HomePage() {
     offset: ["start start", "end start"],
   })
 
-  // Fast convergence: complete by 20% of hero scroll, then page scrolls
-  const convergeProgress = useTransform(scrollYProgress, [0, 0.2], [0, 1])
+  // Staggered convergence: different elements start at different scroll points
+  const topElementsProgress = useTransform(scrollYProgress, [0, 0.15], [0, 1])
+  const middleElementsProgress = useTransform(scrollYProgress, [0.05, 0.2], [0, 1])
+  const bottomElementsProgress = useTransform(scrollYProgress, [0.1, 0.25], [0, 1])
 
   // Center coordinates (all elements will converge here)
   const centerX = 50
@@ -174,11 +176,11 @@ export default function HomePage() {
             ease: "easeInOut",
           }}
           style={{
-            left: useTransform(convergeProgress, [0, 1], ["15%", `${centerX}%`]),
-            top: useTransform(convergeProgress, [0, 1], ["15%", `${centerY}%`]),
-            width: useTransform(convergeProgress, [0, 1], ["56px", "28px"]),
-            height: useTransform(convergeProgress, [0, 1], ["56px", "28px"]),
-            opacity: useTransform(convergeProgress, [0.7, 1], [1, 0]),
+            left: useTransform(topElementsProgress, [0, 1], ["15%", `${centerX}%`]),
+            top: useTransform(topElementsProgress, [0, 1], ["15%", `${centerY}%`]),
+            width: useTransform(topElementsProgress, [0, 1], ["56px", "28px"]),
+            height: useTransform(topElementsProgress, [0, 1], ["56px", "28px"]),
+            opacity: useTransform(topElementsProgress, [0.7, 1], [1, 0]),
           }}
           className="absolute flex items-center justify-center 
             bg-transparent 
@@ -187,7 +189,7 @@ export default function HomePage() {
           onMouseLeave={handleElementLeave}
         >
           <motion.div
-            style={{ width: useTransform(convergeProgress, [0, 1], ["32px", "16px"]), height: useTransform(convergeProgress, [0, 1], ["32px", "16px"]) }}
+            style={{ width: useTransform(topElementsProgress, [0, 1], ["32px", "16px"]), height: useTransform(topElementsProgress, [0, 1], ["32px", "16px"]) }}
           >
             <FaReact className="text-white drop-shadow-lg" style={{ width: "100%", height: "100%" }} />
           </motion.div>
@@ -206,11 +208,11 @@ export default function HomePage() {
             delay: 0.5,
           }}
           style={{
-            right: useTransform(convergeProgress, [0, 1], ["15%", `${centerX}%`]),
-            top: useTransform(convergeProgress, [0, 1], ["15%", `${centerY}%`]),
-            width: useTransform(convergeProgress, [0, 1], ["52px", "26px"]),
-            height: useTransform(convergeProgress, [0, 1], ["52px", "26px"]),
-            opacity: useTransform(convergeProgress, [0.7, 1], [1, 0]),
+            right: useTransform(topElementsProgress, [0, 1], ["15%", `${centerX}%`]),
+            top: useTransform(topElementsProgress, [0, 1], ["15%", `${centerY}%`]),
+            width: useTransform(topElementsProgress, [0, 1], ["52px", "26px"]),
+            height: useTransform(topElementsProgress, [0, 1], ["52px", "26px"]),
+            opacity: useTransform(topElementsProgress, [0.7, 1], [1, 0]),
           }}
           className="absolute flex items-center justify-center 
             bg-transparent 
@@ -219,7 +221,7 @@ export default function HomePage() {
           onMouseLeave={handleElementLeave}
         >
           <motion.div
-            style={{ width: useTransform(convergeProgress, [0, 1], ["28px", "14px"]), height: useTransform(convergeProgress, [0, 1], ["28px", "14px"]) }}
+            style={{ width: useTransform(topElementsProgress, [0, 1], ["28px", "14px"]), height: useTransform(topElementsProgress, [0, 1], ["28px", "14px"]) }}
           >
             <FaCube className="text-white drop-shadow-lg" style={{ width: "100%", height: "100%" }} />
           </motion.div>
@@ -238,11 +240,11 @@ export default function HomePage() {
             delay: 1,
           }}
           style={{
-            right: useTransform(convergeProgress, [0, 1], ["10%", `${centerX}%`]),
-            top: useTransform(convergeProgress, [0, 1], ["40%", `${centerY}%`]),
-            width: useTransform(convergeProgress, [0, 1], ["60px", "30px"]),
-            height: useTransform(convergeProgress, [0, 1], ["60px", "30px"]),
-            opacity: useTransform(convergeProgress, [0.7, 1], [1, 0]),
+            right: useTransform(middleElementsProgress, [0, 1], ["10%", `${centerX}%`]),
+            top: useTransform(middleElementsProgress, [0, 1], ["40%", `${centerY}%`]),
+            width: useTransform(middleElementsProgress, [0, 1], ["60px", "30px"]),
+            height: useTransform(middleElementsProgress, [0, 1], ["60px", "30px"]),
+            opacity: useTransform(middleElementsProgress, [0.7, 1], [1, 0]),
           }}
           className="absolute hidden sm:flex items-center justify-center 
             bg-transparent 
@@ -251,7 +253,7 @@ export default function HomePage() {
           onMouseLeave={handleElementLeave}
         >
           <motion.div
-            style={{ width: useTransform(convergeProgress, [0, 1], ["32px", "16px"]), height: useTransform(convergeProgress, [0, 1], ["32px", "16px"]) }}
+            style={{ width: useTransform(middleElementsProgress, [0, 1], ["32px", "16px"]), height: useTransform(middleElementsProgress, [0, 1], ["32px", "16px"]) }}
           >
             <FaDownload className="text-white drop-shadow-lg" style={{ width: "100%", height: "100%" }} />
           </motion.div>
@@ -270,11 +272,11 @@ export default function HomePage() {
             delay: 1.5,
           }}
           style={{
-            right: useTransform(convergeProgress, [0, 1], ["15%", `${centerX}%`]),
-            bottom: useTransform(convergeProgress, [0, 1], ["15%", `${centerY}%`]),
-            width: useTransform(convergeProgress, [0, 1], ["48px", "24px"]),
-            height: useTransform(convergeProgress, [0, 1], ["48px", "24px"]),
-            opacity: useTransform(convergeProgress, [0.7, 1], [1, 0]),
+            right: useTransform(bottomElementsProgress, [0, 1], ["15%", `${centerX}%`]),
+            bottom: useTransform(bottomElementsProgress, [0, 1], ["15%", `${centerY}%`]),
+            width: useTransform(bottomElementsProgress, [0, 1], ["48px", "24px"]),
+            height: useTransform(bottomElementsProgress, [0, 1], ["48px", "24px"]),
+            opacity: useTransform(bottomElementsProgress, [0.7, 1], [1, 0]),
           }}
           className="absolute flex items-center justify-center 
             bg-transparent 
@@ -283,7 +285,7 @@ export default function HomePage() {
           onMouseLeave={handleElementLeave}
         >
           <motion.div
-            style={{ width: useTransform(convergeProgress, [0, 1], ["24px", "12px"]), height: useTransform(convergeProgress, [0, 1], ["24px", "12px"]) }}
+            style={{ width: useTransform(bottomElementsProgress, [0, 1], ["24px", "12px"]), height: useTransform(bottomElementsProgress, [0, 1], ["24px", "12px"]) }}
           >
             <FaRegHeart className="text-white drop-shadow-lg" style={{ width: "100%", height: "100%" }} />
           </motion.div>
@@ -302,11 +304,11 @@ export default function HomePage() {
             delay: 2,
           }}
           style={{
-            left: useTransform(convergeProgress, [0, 1], ["50%", `${centerX}%`]),
-            bottom: useTransform(convergeProgress, [0, 1], ["10%", `${centerY}%`]),
-            width: useTransform(convergeProgress, [0, 1], ["56px", "28px"]),
-            height: useTransform(convergeProgress, [0, 1], ["56px", "28px"]),
-            opacity: useTransform(convergeProgress, [0.7, 1], [1, 0]),
+            left: useTransform(bottomElementsProgress, [0, 1], ["50%", `${centerX}%`]),
+            bottom: useTransform(bottomElementsProgress, [0, 1], ["10%", `${centerY}%`]),
+            width: useTransform(bottomElementsProgress, [0, 1], ["56px", "28px"]),
+            height: useTransform(bottomElementsProgress, [0, 1], ["56px", "28px"]),
+            opacity: useTransform(bottomElementsProgress, [0.7, 1], [1, 0]),
           }}
           className="absolute flex items-center justify-center 
             bg-transparent 
@@ -315,7 +317,7 @@ export default function HomePage() {
           onMouseLeave={handleElementLeave}
         >
           <motion.div
-            style={{ width: useTransform(convergeProgress, [0, 1], ["28px", "14px"]), height: useTransform(convergeProgress, [0, 1], ["28px", "14px"]) }}
+            style={{ width: useTransform(bottomElementsProgress, [0, 1], ["28px", "14px"]), height: useTransform(bottomElementsProgress, [0, 1], ["28px", "14px"]) }}
           >
             <FaStar className="text-white drop-shadow-lg" style={{ width: "100%", height: "100%" }} />
           </motion.div>
@@ -334,11 +336,11 @@ export default function HomePage() {
             delay: 2.5,
           }}
           style={{
-            left: useTransform(convergeProgress, [0, 1], ["15%", `${centerX}%`]),
-            bottom: useTransform(convergeProgress, [0, 1], ["15%", `${centerY}%`]),
-            width: useTransform(convergeProgress, [0, 1], ["52px", "26px"]),
-            height: useTransform(convergeProgress, [0, 1], ["52px", "26px"]),
-            opacity: useTransform(convergeProgress, [0.7, 1], [1, 0]),
+            left: useTransform(bottomElementsProgress, [0, 1], ["15%", `${centerX}%`]),
+            bottom: useTransform(bottomElementsProgress, [0, 1], ["15%", `${centerY}%`]),
+            width: useTransform(bottomElementsProgress, [0, 1], ["52px", "26px"]),
+            height: useTransform(bottomElementsProgress, [0, 1], ["52px", "26px"]),
+            opacity: useTransform(bottomElementsProgress, [0.7, 1], [1, 0]),
           }}
           className="absolute flex items-center justify-center 
             bg-transparent 
@@ -347,7 +349,7 @@ export default function HomePage() {
           onMouseLeave={handleElementLeave}
         >
           <motion.div
-            style={{ width: useTransform(convergeProgress, [0, 1], ["28px", "14px"]), height: useTransform(convergeProgress, [0, 1], ["28px", "14px"]) }}
+            style={{ width: useTransform(bottomElementsProgress, [0, 1], ["28px", "14px"]), height: useTransform(bottomElementsProgress, [0, 1], ["28px", "14px"]) }}
           >
             <FaPalette className="text-white drop-shadow-lg" style={{ width: "100%", height: "100%" }} />
           </motion.div>
@@ -366,11 +368,11 @@ export default function HomePage() {
             delay: 3,
           }}
           style={{
-            left: useTransform(convergeProgress, [0, 1], ["10%", `${centerX}%`]),
-            top: useTransform(convergeProgress, [0, 1], ["40%", `${centerY}%`]),
-            width: useTransform(convergeProgress, [0, 1], ["60px", "30px"]),
-            height: useTransform(convergeProgress, [0, 1], ["60px", "30px"]),
-            opacity: useTransform(convergeProgress, [0.7, 1], [1, 0]),
+            left: useTransform(middleElementsProgress, [0, 1], ["10%", `${centerX}%`]),
+            top: useTransform(middleElementsProgress, [0, 1], ["40%", `${centerY}%`]),
+            width: useTransform(middleElementsProgress, [0, 1], ["60px", "30px"]),
+            height: useTransform(middleElementsProgress, [0, 1], ["60px", "30px"]),
+            opacity: useTransform(middleElementsProgress, [0.7, 1], [1, 0]),
           }}
           className="absolute hidden sm:flex items-center justify-center 
             bg-transparent 
@@ -379,7 +381,7 @@ export default function HomePage() {
           onMouseLeave={handleElementLeave}
         >
           <motion.div
-            style={{ width: useTransform(convergeProgress, [0, 1], ["32px", "16px"]), height: useTransform(convergeProgress, [0, 1], ["32px", "16px"]) }}
+            style={{ width: useTransform(middleElementsProgress, [0, 1], ["32px", "16px"]), height: useTransform(middleElementsProgress, [0, 1], ["32px", "16px"]) }}
           >
             <FaMagic className="text-white drop-shadow-lg" style={{ width: "100%", height: "100%" }} />
           </motion.div>
