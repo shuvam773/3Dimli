@@ -143,26 +143,12 @@ export default function HomePage() {
         >
           <Button
             size="lg"
-            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg font-semibold group"
+            className="shine-btn bg-transparent border-2 rounded-full text-white px-12 py-8 text-lg font-semibold group relative overflow-hidden"
           >
-            Start Your Project
-            <motion.div
-              className="ml-2"
-              whileHover={{ x: 5 }}
-              transition={{ type: "spring", stiffness: 400, damping: 10 }}
-            >
-              <ArrowRight className="w-5 h-5" />
-            </motion.div>
+            Explore all products
           </Button>
 
-          <Button
-            variant="ghost"
-            size="lg"
-            className="text-white hover:bg-white/10 px-8 py-4 text-lg font-semibold group"
-          >
-            <Play className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
-            Watch Demo
-          </Button>
+          
         </motion.div>
 
         {/* Stats */}
