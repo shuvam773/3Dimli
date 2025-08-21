@@ -125,7 +125,7 @@ export default function HomePage() {
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight min-h-[3.5rem]"
+          className="max-w-2xl mx-auto text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight min-h-[3.5rem] break-words"
         >
           <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
             {typedText}
