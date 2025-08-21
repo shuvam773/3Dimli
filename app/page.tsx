@@ -199,7 +199,7 @@ export default function HomePage() {
           ease: "easeInOut",
         }}
         style={{
-          left: `calc(${interpolate(40, 50)}vw)`,
+          left: `calc(${interpolate(20, 50)}vw)`,
           top: `calc(${interpolate(25, 50)}vh)`,
           transform: "translate(-50%, -50%)",
         }}
