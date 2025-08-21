@@ -15,6 +15,11 @@ const typeEffect = [
 export default function HomePage() {
   const [scrollProgress, setScrollProgress] = useState(0)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,16 +28,20 @@ export default function HomePage() {
       const progress = docHeight > 0 ? Math.min(scrollY / docHeight, 1) : 0
       setScrollProgress(progress)
     }
+    
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
   // Helper to interpolate position
-  const interpolate = (start: number, end: number) => start + (end - start) * scrollProgress
+  const interpolate = (start: number, end: number) => isClient ? start + (end - start) * scrollProgress : start
 
-  // Center coordinates (approximate, adjust as needed)
-  const centerX = "50vw"
-  const centerY = "50vh"
+  // Helper to interpolate size
+  const interpolateSize = (start: number, end: number) => isClient ? start + (end - start) * scrollProgress : start
+
+  // Center coordinates
+  const centerX = 50
+  const centerY = 50
 
   // Typing effect state
   const [typedText, setTypedText] = useState("")
@@ -190,8 +199,6 @@ export default function HomePage() {
           >
             Explore all products
           </Button>
-
-           
         </motion.div>
 
         {/* Stats */}
@@ -216,7 +223,7 @@ export default function HomePage() {
         </motion.div>
       </div>
 
-      {/* Floating Elements - Responsive */}
+      {/* Floating Elements - Responsive with scroll effect */}
       <motion.div
         animate={{
           y: [0, -20, 0],
@@ -228,15 +235,23 @@ export default function HomePage() {
           ease: "easeInOut",
         }}
         style={{
-          left: `calc(${interpolate(20, 50)}vw)`,
-          top: `calc(${interpolate(25, 50)}vh)`,
+          left: `${interpolate(20, centerX)}vw`,
+          top: `${interpolate(25, centerY)}vh`,
+          width: isClient ? `${interpolateSize(64, 32)}px` : "64px",
+          height: isClient ? `${interpolateSize(64, 32)}px` : "64px",
           transform: "translate(-50%, -50%)",
         }}
-        className="absolute w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 flex items-center justify-center 
+        className="absolute flex items-center justify-center 
           bg-gradient-to-br from-blue-500 via-cyan-400 to-purple-500 
-          rounded-xl md:rounded-2xl shadow-xl md:shadow-2xl shadow-blue-500/30 border-2 border-white/20"
+          rounded-xl md:rounded-2xl shadow-xl md:shadow-2xl shadow-blue-500/30 border-2 border-white/20 transition-all duration-300 z-0"
       >
-        <FaReact className="w-10 h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 text-white drop-shadow-lg" />
+        <FaReact 
+          className="text-white drop-shadow-lg transition-all duration-300" 
+          style={{ 
+            width: isClient ? `${interpolateSize(40, 20)}px` : "40px", 
+            height: isClient ? `${interpolateSize(40, 20)}px` : "40px" 
+          }} 
+        />
       </motion.div>
 
       <motion.div
@@ -251,15 +266,23 @@ export default function HomePage() {
           delay: 1,
         }}
         style={{
-          right: `calc(${interpolate(8, 50)}vw)`,
-          top: `calc(${interpolate(33, 50)}vh)`,
+          right: `${interpolate(8, 50)}vw`,
+          top: `${interpolate(33, centerY)}vh`,
+          width: isClient ? `${interpolateSize(56, 28)}px` : "56px",
+          height: isClient ? `${interpolateSize(56, 28)}px` : "56px",
           transform: "translate(50%, -50%)",
         }}
-        className="absolute w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 flex items-center justify-center 
+        className="absolute flex items-center justify-center 
           bg-gradient-to-br from-cyan-400 via-blue-500 to-purple-400 
-          rounded-full shadow-xl md:shadow-2xl shadow-cyan-400/30 border-2 border-white/20"
+          rounded-full shadow-xl md:shadow-2xl shadow-cyan-400/30 border-2 border-white/20 transition-all duration-300 z-0"
       >
-        <FaDownload className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 text-white drop-shadow-lg" />
+        <FaDownload 
+          className="text-white drop-shadow-lg transition-all duration-300" 
+          style={{ 
+            width: isClient ? `${interpolateSize(32, 16)}px` : "32px", 
+            height: isClient ? `${interpolateSize(32, 16)}px` : "32px" 
+          }} 
+        />
       </motion.div>
 
       <motion.div
@@ -274,15 +297,23 @@ export default function HomePage() {
           delay: 2,
         }}
         style={{
-          left: `calc(${interpolate(25, 50)}vw)`,
-          bottom: `calc(${interpolate(25, 50)}vh)`,
+          left: `${interpolate(25, centerX)}vw`,
+          bottom: `${interpolate(25, 50)}vh`,
+          width: isClient ? `${interpolateSize(48, 24)}px` : "48px",
+          height: isClient ? `${interpolateSize(48, 24)}px` : "48px",
           transform: "translate(-50%, 50%)",
         }}
-        className="absolute w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 flex items-center justify-center 
+        className="absolute flex items-center justify-center 
           bg-gradient-to-br from-pink-500 via-purple-500 to-blue-400 
-          rounded-xl md:rounded-2xl shadow-xl md:shadow-2xl shadow-pink-500/30 border-2 border-white/20"
+          rounded-xl md:rounded-2xl shadow-xl md:shadow-2xl shadow-pink-500/30 border-2 border-white/20 transition-all duration-300 z-0"
       >
-        <FaRegHeart className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 text-white drop-shadow-lg" />
+        <FaRegHeart 
+          className="text-white drop-shadow-lg transition-all duration-300" 
+          style={{ 
+            width: isClient ? `${interpolateSize(24, 12)}px` : "24px", 
+            height: isClient ? `${interpolateSize(24, 12)}px` : "24px" 
+          }} 
+        />
       </motion.div>
     </div>
   )
