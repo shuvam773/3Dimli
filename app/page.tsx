@@ -93,8 +93,8 @@ export default function HomePage() {
       <div className="bg-white/3 absolute inset-0">
 
         <div className="absolute inset-0">
-          <div className="absolute bg-[#ef233c] block blur-3xl filter h-72 lg:h-96 lg:w-96 opacity-20 rounded-full w-72 left-5 top-1/4 md:left-[17%]" />
-          <div className="absolute bg-[#04868b] block blur-3xl filter h-72 lg:h-96 lg:w-96 opacity-30 rounded-full w-72 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />
+          <div className="absolute bg-[#ef233c] block blur-3xl filter h-44 w-44 md:h-[22rem] md:w-[22rem] lg:h-[28rem] lg:w-[28rem] opacity-15 rounded-full left-5 top-1/4 md:left-[17%]" />
+          <div className="absolute bg-[#04868b] block blur-3xl filter h-44 w-44 md:h-[22rem] md:w-[22rem] lg:h-[28rem] lg:w-[28rem] opacity-20 rounded-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />
         </div>
       </div>
 
@@ -121,7 +121,7 @@ export default function HomePage() {
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="max-w-md md:max-w-xl mx-auto text-sm md:text-base text-gray-300 mb-6 md:mb-8 px-4"
+            className="w-3xl mx-auto text-xl lg:text-2xl md:text-base text-gray-300/70 mb-6 md:mb-8 px-2"
           >
             Your one-stop digital platform for 3D models and digital creations.
             Join our community of creators and collectors today.
@@ -190,7 +190,7 @@ export default function HomePage() {
             <motion.div
               style={{ width: useTransform(topElementsProgress, [0, 1], ["32px", "16px"]), height: useTransform(topElementsProgress, [0, 1], ["32px", "16px"]) }}
             >
-              <FaReact className="text-white drop-shadow-lg" style={{ width: "100%", height: "100%" }} />
+              <FaReact className="text-cyan-400 drop-shadow-lg " style={{ width: "100%", height: "100%" }} />
             </motion.div>
           </motion.div>
 
@@ -214,7 +214,6 @@ export default function HomePage() {
               opacity: useTransform(topElementsProgress, [0.7, 1], [1, 0]),
             }}
             className="absolute bg-white/10 flex items-center justify-center 
-            bg-transparent 
             rounded-full shadow-xl md:shadow-2xl shadow-cyan-400/30 border-2 border-white/20 transition-all duration-300 z-0 cursor-pointer hover:scale-110"
             onMouseEnter={(e) => handleElementHover('cube', e)}
             onMouseLeave={handleElementLeave}
@@ -222,7 +221,7 @@ export default function HomePage() {
             <motion.div
               style={{ width: useTransform(topElementsProgress, [0, 1], ["28px", "14px"]), height: useTransform(topElementsProgress, [0, 1], ["28px", "14px"]) }}
             >
-              <FaCube className="text-white drop-shadow-lg" style={{ width: "100%", height: "100%" }} />
+              <FaCube className="text-blue-600 drop-shadow-lg" style={{ width: "100%", height: "100%" }} />
             </motion.div>
           </motion.div>
 
@@ -253,7 +252,7 @@ export default function HomePage() {
             <motion.div
               style={{ width: useTransform(middleElementsProgress, [0, 1], ["32px", "16px"]), height: useTransform(middleElementsProgress, [0, 1], ["32px", "16px"]) }}
             >
-              <FaDownload className="text-white drop-shadow-lg" style={{ width: "100%", height: "100%" }} />
+              <FaDownload className="text-green-500 drop-shadow-lg" style={{ width: "100%", height: "100%" }} />
             </motion.div>
           </motion.div>
 
@@ -284,7 +283,7 @@ export default function HomePage() {
             <motion.div
               style={{ width: useTransform(bottomElementsProgress, [0, 1], ["24px", "12px"]), height: useTransform(bottomElementsProgress, [0, 1], ["24px", "12px"]) }}
             >
-              <FaRegHeart className="text-white drop-shadow-lg" style={{ width: "100%", height: "100%" }} />
+              <FaRegHeart className="text-red-600 drop-shadow-lg" style={{ width: "100%", height: "100%" }} />
             </motion.div>
           </motion.div>
 
@@ -315,7 +314,7 @@ export default function HomePage() {
             <motion.div
               style={{ width: useTransform(bottomElementsProgress, [0, 1], ["28px", "14px"]), height: useTransform(bottomElementsProgress, [0, 1], ["28px", "14px"]) }}
             >
-              <FaStar className="text-white drop-shadow-lg" style={{ width: "100%", height: "100%" }} />
+              <FaStar className="text-yellow-500 drop-shadow-lg" style={{ width: "100%", height: "100%" }} />
             </motion.div>
           </motion.div>
 
@@ -346,7 +345,7 @@ export default function HomePage() {
             <motion.div
               style={{ width: useTransform(bottomElementsProgress, [0, 1], ["28px", "14px"]), height: useTransform(bottomElementsProgress, [0, 1], ["28px", "14px"]) }}
             >
-              <FaPalette className="text-white drop-shadow-lg" style={{ width: "100%", height: "100%" }} />
+              <FaPalette className="text-orange-500 drop-shadow-lg" style={{ width: "100%", height: "100%" }} />
             </motion.div>
           </motion.div>
 
@@ -377,7 +376,7 @@ export default function HomePage() {
             <motion.div
               style={{ width: useTransform(middleElementsProgress, [0, 1], ["32px", "16px"]), height: useTransform(middleElementsProgress, [0, 1], ["32px", "16px"]) }}
             >
-              <FaMagic className="text-white drop-shadow-lg" style={{ width: "100%", height: "100%" }} />
+              <FaMagic className="text-fuchsia-600 drop-shadow-lg" style={{ width: "100%", height: "100%" }} />
             </motion.div>
           </motion.div>
 
