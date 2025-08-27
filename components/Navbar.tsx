@@ -52,11 +52,11 @@ export default function Navbar() {
 
         {/* Right - Buttons (Desktop) */}
         <div className="hidden lg:flex items-center space-x-3 xl:space-x-4">
-          <button className="bg-blue-900/80 hover:bg-blue-800 text-white px-4 xl:px-6 py-2 xl:py-3 rounded-lg xl:rounded-xl flex items-center space-x-2 xl:space-x-3 hover:bg-blue-800 transition text-sm xl:text-base font-semibold">
+          <button className="shine-btn bg-blue-900/80 hover:bg-blue-800 text-white px-4 xl:px-6 py-2 xl:py-3 rounded-lg xl:rounded-xl flex items-center space-x-2 xl:space-x-3 hover:bg-blue-800 transition text-sm xl:text-base font-semibold">
             <FaDiscord className="h-4 w-4 xl:h-5 xl:w-5" />
             <span>Discord</span>
           </button>
-          <button className="bg-blue-900/80 hover:bg-blue-800 text-white px-4 xl:px-6 py-2 xl:py-3 rounded-lg xl:rounded-xl flex items-center space-x-2 xl:space-x-3 hover:bg-blue-800 transition text-sm xl:text-base font-semibold">
+          <button className="shine-btn bg-blue-900/80 hover:bg-blue-800 text-white px-4 xl:px-6 py-2 xl:py-3 rounded-lg xl:rounded-xl flex items-center space-x-2 xl:space-x-3 hover:bg-blue-800 transition text-sm xl:text-base font-semibold">
             <FiUpload className="h-4 w-4 xl:h-5 xl:w-5" />
             <span>Upload</span>
           </button>
