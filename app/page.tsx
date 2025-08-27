@@ -121,9 +121,10 @@ export default function HomePage() {
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="w-3xl mx-auto text-xl lg:text-2xl md:text-base text-gray-300/70 mb-6 md:mb-8 px-2"
+            className="text-[10px] lg:text-xl px-5 md:px-0 font-medium leading-[1.4] text-white/80 dark:text-neutral-400 max-w-3xl mx-auto mb-8 md:mb-16"
           >
-            Your one-stop digital platform for 3D models and digital creations.
+            Your one-stop digital platform for 3D models
+            and digital creations.<br className="hidden sm:block" />
             Join our community of creators and collectors today.
           </motion.p>
 
