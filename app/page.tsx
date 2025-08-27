@@ -18,18 +18,18 @@ export default function HomePage() {
   const [clickedElement, setClickedElement] = useState<string | null>(null)
   const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 })
 
-  // Use Framer Motion scroll progress tied to the hero section only (0..1)
+  
   const { scrollYProgress } = useScroll({
     target: heroSectionRef,
     offset: ["start start", "end start"],
   })
 
-  // Staggered convergence: different elements start at different scroll points
+
   const topElementsProgress = useTransform(scrollYProgress, [0, 0.15], [0, 1])
   const middleElementsProgress = useTransform(scrollYProgress, [0.05, 0.2], [0, 1])
   const bottomElementsProgress = useTransform(scrollYProgress, [0.1, 0.25], [0, 1])
 
-  // Center coordinates (all elements will converge here)
+  
   const centerX = 50
   const centerY = 50
 
@@ -88,7 +88,7 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
-      {/* Background Elements */}
+      {/* Background */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-4 md:left-20 w-48 md:w-72 h-48 md:h-72 bg-blue-500/10 rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-4 md:right-20 w-64 md:w-96 h-64 md:h-96 bg-purple-500/10 rounded-full blur-3xl" />
@@ -100,7 +100,7 @@ export default function HomePage() {
 
       <Navbar />
 
-      {/* Hero - pinned until convergence */}
+      {/* Hero Section */}
       <section ref={heroSectionRef} className="relative h-[200vh] pt-32">
         <div className="sticky top-32 h-screen z-10 flex flex-col items-center justify-center px-4 md:px-6 text-center">
 
@@ -162,7 +162,7 @@ export default function HomePage() {
           </div>
         </motion.div>
 
-        {/* Floating Elements - All will move toward center */}
+        {/* Floating Elements */}
         
         {/* Top Left */}
         <motion.div
@@ -176,8 +176,8 @@ export default function HomePage() {
             ease: "easeInOut",
           }}
           style={{
-            left: useTransform(topElementsProgress, [0, 1], ["15%", `${centerX}%`]),
-            top: useTransform(topElementsProgress, [0, 1], ["15%", `${centerY}%`]),
+            left: useTransform(topElementsProgress, [0, 0.4], ["15%", `${centerX}%`]),
+            top: useTransform(topElementsProgress, [0, 0.4], ["15%", `${centerY}%`]),
             width: useTransform(topElementsProgress, [0, 1], ["56px", "28px"]),
             height: useTransform(topElementsProgress, [0, 1], ["56px", "28px"]),
             opacity: useTransform(topElementsProgress, [0.7, 1], [1, 0]),
@@ -208,8 +208,8 @@ export default function HomePage() {
             delay: 0.5,
           }}
           style={{
-            right: useTransform(topElementsProgress, [0, 1], ["15%", `${centerX}%`]),
-            top: useTransform(topElementsProgress, [0, 1], ["15%", `${centerY}%`]),
+            right: useTransform(topElementsProgress, [0, 0.8], ["15%", `${centerX}%`]),
+            top: useTransform(topElementsProgress, [0, 0.8], ["15%", `${centerY}%`]),
             width: useTransform(topElementsProgress, [0, 1], ["52px", "26px"]),
             height: useTransform(topElementsProgress, [0, 1], ["52px", "26px"]),
             opacity: useTransform(topElementsProgress, [0.7, 1], [1, 0]),
@@ -272,8 +272,8 @@ export default function HomePage() {
             delay: 1.5,
           }}
           style={{
-            right: useTransform(bottomElementsProgress, [0, 1], ["15%", `${centerX}%`]),
-            bottom: useTransform(bottomElementsProgress, [0, 1], ["15%", `${centerY}%`]),
+            right: useTransform(bottomElementsProgress, [0, 1.8], ["15%", `${centerX}%`]),
+            bottom: useTransform(bottomElementsProgress, [0, 1.8], ["15%", `${centerY}%`]),
             width: useTransform(bottomElementsProgress, [0, 1], ["48px", "24px"]),
             height: useTransform(bottomElementsProgress, [0, 1], ["48px", "24px"]),
             opacity: useTransform(bottomElementsProgress, [0.7, 1], [1, 0]),
@@ -304,8 +304,8 @@ export default function HomePage() {
             delay: 2,
           }}
           style={{
-            left: useTransform(bottomElementsProgress, [0, 1], ["50%", `${centerX}%`]),
-            bottom: useTransform(bottomElementsProgress, [0, 1], ["10%", `${centerY}%`]),
+            left: useTransform(bottomElementsProgress, [0, 1.5], ["50%", `${centerX}%`]),
+            bottom: useTransform(bottomElementsProgress, [0, 1.5], ["10%", `${centerY}%`]),
             width: useTransform(bottomElementsProgress, [0, 1], ["56px", "28px"]),
             height: useTransform(bottomElementsProgress, [0, 1], ["56px", "28px"]),
             opacity: useTransform(bottomElementsProgress, [0.7, 1], [1, 0]),
@@ -336,8 +336,8 @@ export default function HomePage() {
             delay: 2.5,
           }}
           style={{
-            left: useTransform(bottomElementsProgress, [0, 1], ["15%", `${centerX}%`]),
-            bottom: useTransform(bottomElementsProgress, [0, 1], ["15%", `${centerY}%`]),
+            left: useTransform(bottomElementsProgress, [0, 1.3], ["15%", `${centerX}%`]),
+            bottom: useTransform(bottomElementsProgress, [0, 1.3], ["15%", `${centerY}%`]),
             width: useTransform(bottomElementsProgress, [0, 1], ["52px", "26px"]),
             height: useTransform(bottomElementsProgress, [0, 1], ["52px", "26px"]),
             opacity: useTransform(bottomElementsProgress, [0.7, 1], [1, 0]),
@@ -368,8 +368,8 @@ export default function HomePage() {
             delay: 3,
           }}
           style={{
-            left: useTransform(middleElementsProgress, [0, 1], ["10%", `${centerX}%`]),
-            top: useTransform(middleElementsProgress, [0, 1], ["40%", `${centerY}%`]),
+            left: useTransform(middleElementsProgress, [0, 1.2], ["10%", `${centerX}%`]),
+            top: useTransform(middleElementsProgress, [0, 1.2], ["40%", `${centerY}%`]),
             width: useTransform(middleElementsProgress, [0, 1], ["60px", "30px"]),
             height: useTransform(middleElementsProgress, [0, 1], ["60px", "30px"]),
             opacity: useTransform(middleElementsProgress, [0.7, 1], [1, 0]),
@@ -387,7 +387,7 @@ export default function HomePage() {
           </motion.div>
         </motion.div>
 
-        {/* Tooltip for clicked element */}
+        {/* Tooltip */}
         {clickedElement && (
           <motion.div
             initial={{ opacity: 0, scale: 0.8, y: 10 }}
