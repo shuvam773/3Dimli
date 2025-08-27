@@ -90,7 +90,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-gradient-to-br bg-black bg-blend-saturation relative overflow-hidden">
 
       {/* Background */}
-      <div className="bg-white/3 absolute inset-0">
+      <div className="bg-white/3 lg:bg-white/3 absolute inset-0">
 
         <div className="absolute inset-0">
           <div className="absolute bg-[#ef233c] block blur-3xl filter h-44 w-44 md:h-[22rem] md:w-[22rem] lg:h-[28rem] lg:w-[28rem] opacity-15 rounded-full left-5 top-1/4 md:left-[17%]" />
