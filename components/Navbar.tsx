@@ -22,14 +22,17 @@ export default function Navbar() {
       >
         {/* Left - Logo */}
         <div className="flex items-center space-x-2 sm:space-x-4">
-          <Image 
-            src="https://media.cgvizstudio.com/cg-viz-media/images/3DIMLI%20Images/Logo/3DIMLI%20LOGO.svg" 
-            alt="Logo" 
-            width={120} 
+          <Image
+            src="https://media.cgvizstudio.com/cg-viz-media/images/3DIMLI%20Images/Logo/3DIMLI%20LOGO.svg"
+            alt="Logo"
+            width={120}
             height={120}
             className="w-24 h-8 sm:w-28 sm:h-9 md:w-32 md:h-10 lg:w-36 lg:h-11"
           />
-          <span className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-400 hidden sm:inline-block font-semibold">BETA 1.0.1</span>
+          <span className="flex flex-col justify-center items-start border-l-2 border-white px-2 text-xs md:text-xs lg:text-xs text-gray-400 font-light">
+            <span className="leading-tight">BETA</span>
+            <span className="leading-tight">1.0.1</span>
+          </span>
         </div>
 
         {/* Middle - Links + Search */}
@@ -67,7 +70,7 @@ export default function Navbar() {
 
         {/* Mobile menu button */}
         <div className="lg:hidden flex items-center">
-          <button 
+          <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="text-gray-300 hover:text-white focus:outline-none p-1"
           >
@@ -78,7 +81,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
@@ -95,7 +98,7 @@ export default function Navbar() {
               />
               <Search className="h-4 w-4 text-gray-400" />
             </div>
-            
+
             {/* Mobile Navigation Links */}
             <div className="space-y-1">
               <a href="#" className="block py-2 px-2 text-gray-300 hover:text-white transition-colors rounded-lg hover:bg-slate-800/50">Home</a>
@@ -103,7 +106,7 @@ export default function Navbar() {
               <a href="#" className="block py-2 px-2 text-gray-300 hover:text-white transition-colors rounded-lg hover:bg-slate-800/50">Features</a>
               <a href="#" className="block py-2 px-2 text-gray-300 hover:text-white transition-colors rounded-lg hover:bg-slate-800/50">Pricing</a>
             </div>
-            
+
             {/* Mobile Buttons */}
             <div className="pt-2 space-y-2">
               <button className="w-full bg-blue-900/80 hover:bg-blue-800 text-white px-4 py-3 rounded-lg flex items-center justify-center space-x-2 transition">
