@@ -18,7 +18,7 @@ export default function Navbar() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 sm:px-6 lg:px-8 xl:px-12 py-4 sm:py-6 bg-slate-900/60 backdrop-blur-xl border-b border-white/10"
+        className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 sm:px-6 lg:px-8 xl:px-12 py-2 sm:py-4 bg-neutral-900 backdrop-blur-xl"
       >
         {/* Left - Logo */}
         <div className="flex items-center space-x-2 sm:space-x-4">
@@ -29,27 +29,29 @@ export default function Navbar() {
             height={120}
             className="w-24 h-8 sm:w-28 sm:h-9 md:w-32 md:h-10 lg:w-36 lg:h-11"
           />
-          <span className="flex flex-col justify-center items-start border-l-2 border-white px-2 text-xs md:text-xs lg:text-xs text-gray-400 font-light">
+          <span className="flex flex-col justify-center items-start border-l-2 border-r-2 border-white/10 px-2 text-xs md:text-xs lg:text-xs text-gray-400 font-light">
             <span className="leading-tight">BETA</span>
             <span className="leading-tight">1.0.1</span>
           </span>
         </div>
 
         {/* Middle - Links + Search */}
-        <div className="hidden lg:flex items-center space-x-8 xl:space-x-12 flex-1 justify-center max-w-4xl mx-auto">
-          <a href="#" className="text-lg xl:text-xl text-gray-300 hover:text-white transition-colors font-medium whitespace-nowrap">Home</a>
-          <a href="#" className="text-lg xl:text-xl text-gray-300 hover:text-white transition-colors font-medium whitespace-nowrap">Discover</a>
-          <a href="#" className="text-lg xl:text-xl text-gray-300 hover:text-white transition-colors font-medium whitespace-nowrap">Features</a>
-          <a href="#" className="text-lg xl:text-xl text-gray-300 hover:text-white transition-colors font-medium whitespace-nowrap">Pricing</a>
+        <div className="hidden lg:flex items-center space-x-4 xl:space-x-6 flex-1 justify-center max-w-5xl mx-auto">
+          <a href="#" className="text-sm text-gray-300 hover:text-white transition-colors font-medium whitespace-nowrap">Home</a>
+          <a href="#" className="text-sm text-gray-300 hover:text-white transition-colors font-medium whitespace-nowrap">Discover</a>
+          <a href="#" className="text-sm text-gray-300 hover:text-white transition-colors font-medium whitespace-nowrap">Features</a>
+          <a href="#" className="text-sm text-gray-300 hover:text-white transition-colors font-medium whitespace-nowrap">Pricing</a>
 
-          {/* Search Bar */}
-          <div className="ml-6 xl:ml-10 flex items-center bg-slate-800/50 border border-gray-600 rounded-lg xl:rounded-xl px-3 xl:px-6 py-2 xl:py-3">
+          {/* Search Bar - Maximized width */}
+          <div className="ml-6 flex items-center space-x-10 bg-neutral-900 border border-gray-600 rounded-xl px-4 py-2 w-[570px] xl:w-[670px]">
             <input
               type="text"
               placeholder="Search..."
-              className="bg-transparent outline-none text-sm xl:text-base text-white placeholder-gray-400 w-32 xl:w-48 2xl:w-64"
+              className="bg-transparent outline-none text-sm text-white placeholder-gray-400 w-full"
             />
-            <Search className="h-4 w-4 xl:h-5 xl:w-5 text-gray-400 ml-2" />
+            <span className="border-l-2 border-white/10 px-2">
+              <Search className="h-4 w-4  text-gray-400 leading-tight" />
+            </span>
           </div>
         </div>
 
@@ -89,14 +91,14 @@ export default function Navbar() {
           className="lg:hidden fixed top-[88px] sm:top-[104px] left-0 right-0 bg-slate-900/95 backdrop-blur-xl border-b border-gray-800 z-40"
         >
           <div className="px-4 py-4 space-y-4">
-            {/* Mobile Search */}
-            <div className="flex items-center bg-slate-800/50 border border-gray-600 rounded-lg px-3 py-2">
+            {/* Mobile Search - Full width on mobile */}
+            <div className="flex items-center bg-slate-800/50 border border-gray-600 rounded-lg px-3 py-2 w-full">
+              <Search className="h-4 w-4 text-gray-400 mr-2" />
               <input
                 type="text"
                 placeholder="Search..."
                 className="bg-transparent outline-none text-sm text-white placeholder-gray-400 flex-1"
               />
-              <Search className="h-4 w-4 text-gray-400" />
             </div>
 
             {/* Mobile Navigation Links */}
@@ -109,11 +111,11 @@ export default function Navbar() {
 
             {/* Mobile Buttons */}
             <div className="pt-2 space-y-2">
-              <button className="w-full bg-blue-900/80 hover:bg-blue-800 text-white px-4 py-3 rounded-lg flex items-center justify-center space-x-2 transition">
+              <button className="w-full bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-3 rounded-lg flex items-center justify-center space-x-2 transition">
                 <FaDiscord className="h-4 w-4" />
                 <span>Discord</span>
               </button>
-              <button className="w-full bg-blue-900/80 hover:bg-blue-800 text-white px-4 py-3 rounded-lg flex items-center justify-center space-x-2 transition">
+              <button className="w-full bg-gray-800 hover:bg-gray-700 text-white px-4 py-3 rounded-lg flex items-center justify-center space-x-2 transition">
                 <FiUpload className="h-4 w-4" />
                 <span>Upload</span>
               </button>
